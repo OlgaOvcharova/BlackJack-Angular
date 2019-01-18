@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  
+
   public winner: string = '';
   public isShown: boolean = false;
   public humanPlayerHand: TCard[] = [];
@@ -123,7 +123,6 @@ export class AppComponent {
       const temp: TCard = deck[firstIndex];
       deck[firstIndex] = deck[secondIndex];
       deck[secondIndex] = temp;
-
     }
 
     return deck;

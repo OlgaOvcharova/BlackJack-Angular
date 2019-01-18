@@ -1,5 +1,17 @@
 <button class="btn-new" 
-    (click)="newGame()">
-New game
+    (click)="newGame_do()">
+  New game
 </button>
+
+<button *ngIf="isShown" 
+				class="btn-hit" 
+				(click)="onHit_do()">
+	Hit
+</button>
+
+<button *ngIf="isShown" 
+				class="btn-stand" 
+				(click)="onStand_do()">
+	Stand
+</button> 
 

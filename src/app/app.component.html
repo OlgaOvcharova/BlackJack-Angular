@@ -36,11 +36,19 @@
     <p>Dealer score: {{ computerScore }}</p>
   </div>
 
+    
+    <side-bar
+				(newGame_did) = "newGame($event)"
+				[isShown] = "isShown"
+				(onHit_did) = "onHit($event)"
+				(onStand_did) = "onStand($event)">
+		</side-bar>		
+<!-- 	
 	<button class="btn-new" 
 					(click)="newGame()">
 		New game
-	</button>
-	<button *ngIf="isShown" 
+	</button> -->
+	<!-- <button *ngIf="isShown" 
 					class="btn-hit" 
 					(click)="onHit()">
 		Hit
@@ -49,5 +57,5 @@
 					class="btn-stand" 
 					(click)="onStand()">
 		Stand
-	</button> 
+	</button>  -->
 </div>
