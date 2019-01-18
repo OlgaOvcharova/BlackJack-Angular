@@ -13,17 +13,17 @@ type TCard = {
 })
 
 export class AppComponent {
-  public readonly SWAP_TIMES: number = 36;
-  public readonly WIN_SCORE: number = 21;
-  public readonly ENOUGH_SCORE: number = 15;
+  private readonly SWAP_TIMES: number = 36;
+  private readonly WIN_SCORE: number = 21;
+  private readonly ENOUGH_SCORE: number = 15;
 
 
+  public winner: string = '';
+  public isShown: boolean = false;
   public humanPlayerHand: TCard[] = [];
   public computerPlayerHand: TCard[] = [];
   public humanScore: number = 0;
   public computerScore: number = 0;
-  public winner: string;
-  public isShown: boolean = false;
 
 
   private _deck: TCard[] = [];
@@ -35,6 +35,7 @@ export class AppComponent {
 
   public newGame(): void {
     this.isShown = true;
+    this.winner = '';
     this.humanScore = 0;
     this.computerScore = 0;
 
@@ -54,10 +55,12 @@ export class AppComponent {
     this.humanScore += this.humanPlayerHand[this.humanPlayerHand.length - 1].value;
 
     if (this.humanScore > this.WIN_SCORE) {
-      this.winner = 'Dealer';
+      this.winner = 'Winner: Dealer';
       this.isShown = false;
-    } else if (this.humanScore === this.WIN_SCORE) {
-      this.winner = 'You';
+
+      return;
+    } if (this.humanScore === this.WIN_SCORE) {
+      this.winner = 'Winner: You';
       this.isShown = false;
     }
   }
@@ -69,11 +72,15 @@ export class AppComponent {
       this.computerPlayerHand.push(this._deck.pop());
       this.computerScore += this.computerPlayerHand[this.computerPlayerHand.length - 1].value;
       if (this.computerScore > this.WIN_SCORE || this.computerScore < this.humanScore) {
-        this.winner = 'You';
-      } else if (this.computerScore === this.WIN_SCORE || this.computerScore > this.humanScore) {
-        this.winner = 'Dealer';
-      } else if (this.computerScore === this.humanScore) {
-        this.winner = 'Eqal scores';
+        this.winner = 'Winner: You';
+
+        return;
+      } if (this.computerScore === this.WIN_SCORE || this.computerScore > this.humanScore) {
+        this.winner = 'Winner: Dealer';
+
+        return;
+      } if (this.computerScore === this.humanScore) {
+        this.winner = 'Nobody wins. Eqal scores';
       }
     }
   }

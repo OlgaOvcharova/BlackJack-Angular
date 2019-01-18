@@ -31,18 +31,23 @@
 	</div>
 
   <div class="message"> 
-    <p *ngIf="">Winner: {{ this.winner }}</p> 
+    <p>{{ this.winner }}</p> 
     <p>Human score: {{ this.humanScore }}</p>
     <p>Dealer score: {{ this.computerScore }}</p>
   </div>
   
-	<button class="btn-new" (click)="newGame()">
+	<button class="btn-new" 
+					(click)="newGame()">
 		New game
 	</button>
-	<button *ngIf="isShown" class="btn-hit" (click)="onHit()">
+	<button *ngIf="isShown" 
+					class="btn-hit" 
+					(click)="onHit()">
 		Hit
 	</button>
-	<button *ngIf="isShown" class="btn-stand" (click)="onStand()">
+	<button *ngIf="isShown" 
+					class="btn-stand" 
+					(click)="onStand()">
 		Stand
 	</button> 
 </div>
