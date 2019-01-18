@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
 
-type TCard = {
-  name: string;
-  suit: string;
-  value: number;
-  imageSource: string;
-};
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,6 +7,7 @@ type TCard = {
 })
 
 export class AppComponent {
+  
   public winner: string = '';
   public isShown: boolean = false;
   public humanPlayerHand: TCard[] = [];
@@ -117,7 +111,7 @@ export class AppComponent {
   private _shuffleDeck(deck: TCard[]): TCard[] {
 
     for (let indexSwap: number = 0; indexSwap < this.SWAP_TIMES; indexSwap++) {
-      
+
       const firstIndex: number = Math.floor(Math.random() * (this._deck.length));
       const secondIndex: number = Math.floor(Math.random() * (this._deck.length));
 
