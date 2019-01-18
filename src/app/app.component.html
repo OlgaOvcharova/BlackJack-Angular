@@ -6,12 +6,12 @@
 		</div>
 
 		<div class="player-score">
-			{{ this.humanScore }}
+			{{ humanScore }}
 		</div>
 
-		<div *ngFor="let card of this.humanPlayerHand" 
+		<div *ngFor="let card of humanPlayerHand" 
 					class="player-hand">
-      <img src="../assets/cards/{{card.suit}}/{{card.name}}.jpg"/>
+      <img [src]="card.imageSource"/>
     </div>      
 	</div>
 
@@ -21,21 +21,24 @@
 		</div>
 
 		<div class="player-score">
-			{{ this.computerScore }}
+			{{ computerScore }}
 		</div>
 		
-		<div *ngFor="let card of this.computerPlayerHand" 
+		<div *ngFor="let card of computerPlayerHand" 
 					class="player-hand">
-      <img src="../assets/cards/{{card.suit}}/{{card.name}}.jpg"/>
+      <img [src]="card.imageSource"/>
     </div>
 	</div>
 
   <div class="message"> 
-    <p>{{ this.winner }}</p> 
-    <p>Human score: {{ this.humanScore }}</p>
-    <p>Dealer score: {{ this.computerScore }}</p>
+    <p>{{ winner }}</p> 
+    <p>Human score: {{ humanScore }}</p>
+    <p>Dealer score: {{ computerScore }}</p>
   </div>
-  
+<!-- 	
+	<side-bar
+		(newGame) = "newGame($event)">
+	</side-bar> -->
 	<button class="btn-new" 
 					(click)="newGame()">
 		New game

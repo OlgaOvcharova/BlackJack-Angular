@@ -4,6 +4,7 @@ type TCard = {
   name: string;
   suit: string;
   value: number;
+  imageSource: string;
 };
 
 @Component({
@@ -13,11 +14,6 @@ type TCard = {
 })
 
 export class AppComponent {
-  private readonly SWAP_TIMES: number = 36;
-  private readonly WIN_SCORE: number = 21;
-  private readonly ENOUGH_SCORE: number = 15;
-
-
   public winner: string = '';
   public isShown: boolean = false;
   public humanPlayerHand: TCard[] = [];
@@ -25,6 +21,10 @@ export class AppComponent {
   public humanScore: number = 0;
   public computerScore: number = 0;
 
+
+  private readonly SWAP_TIMES: number = 36;
+  private readonly WIN_SCORE: number = 21;
+  private readonly ENOUGH_SCORE: number = 15;
 
   private _deck: TCard[] = [];
  
@@ -59,7 +59,9 @@ export class AppComponent {
       this.isShown = false;
 
       return;
-    } if (this.humanScore === this.WIN_SCORE) {
+    } 
+    
+    if (this.humanScore === this.WIN_SCORE) {
       this.winner = 'Winner: You';
       this.isShown = false;
     }
@@ -71,19 +73,25 @@ export class AppComponent {
     while (this.computerScore <= this.ENOUGH_SCORE && this.computerScore !== this.WIN_SCORE) {
       this.computerPlayerHand.push(this._deck.pop());
       this.computerScore += this.computerPlayerHand[this.computerPlayerHand.length - 1].value;
+
       if (this.computerScore > this.WIN_SCORE || this.computerScore < this.humanScore) {
         this.winner = 'Winner: You';
 
         return;
-      } if (this.computerScore === this.WIN_SCORE || this.computerScore > this.humanScore) {
+      }
+
+      if (this.computerScore === this.WIN_SCORE || this.computerScore > this.humanScore) {
         this.winner = 'Winner: Dealer';
 
         return;
-      } if (this.computerScore === this.humanScore) {
+      }
+      
+      if (this.computerScore === this.humanScore) {
         this.winner = 'Nobody wins. Eqal scores';
       }
     }
   }
+
 
   private _generateDeck(): void {
     const cardNameCollection: string[] = ['Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace'];
@@ -102,12 +110,14 @@ export class AppComponent {
       name,
       suit,
       value,
+      imageSource: `../assets/cards/${suit}/${name}.jpg`
     };
   }
 
   private _shuffleDeck(deck: TCard[]): TCard[] {
 
     for (let indexSwap: number = 0; indexSwap < this.SWAP_TIMES; indexSwap++) {
+      
       const firstIndex: number = Math.floor(Math.random() * (this._deck.length));
       const secondIndex: number = Math.floor(Math.random() * (this._deck.length));
 
@@ -115,9 +125,11 @@ export class AppComponent {
         indexSwap--;
         continue;
       }
+
       const temp: TCard = deck[firstIndex];
       deck[firstIndex] = deck[secondIndex];
       deck[secondIndex] = temp;
+
     }
 
     return deck;
