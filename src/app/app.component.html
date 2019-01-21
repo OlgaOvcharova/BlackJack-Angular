@@ -1,61 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div class="wrapper clearfix">
-	<div class="player-0-panel ">
-		<div class="player-name">
-			You
-		</div>
-
-		<div class="player-score">
-			{{ humanScore }}
-		</div>
-
-		<div *ngFor="let card of humanPlayerHand" 
-					class="player-hand">
-      <img [src]="card.imageSource"/>
-    </div>      
-	</div>
-
-	<div class="player-1-panel">
-		<div class="player-name">
-			Dealer
-		</div>
-
-		<div class="player-score">
-			{{ computerScore }}
-		</div>
-		
-		<div *ngFor="let card of computerPlayerHand" 
-					class="player-hand">
-      <img [src]="card.imageSource"/>
-    </div>
-	</div>
-
-  <div class="message"> 
-    <p>{{ winner }}</p> 
-    <p>Human score: {{ humanScore }}</p>
-    <p>Dealer score: {{ computerScore }}</p>
-  </div>
-
+	<field
+		[humanScore] = "humanScore"
+		[computerScore] = "computerScore"
+		[humanPlayerHand] = "humanPlayerHand"
+		[computerPlayerHand] = "computerPlayerHand">
+	</field>
     
-    <side-bar
-				(newGame_did) = "newGame($event)"
-				[isShown] = "isShown"
-				(onHit_did) = "onHit($event)"
-				(onStand_did) = "onStand($event)">
-		</side-bar>		
-<!-- 	
-	<button class="btn-new" 
-					(click)="newGame()">
-		New game
-	</button> -->
-	<!-- <button *ngIf="isShown" 
-					class="btn-hit" 
-					(click)="onHit()">
-		Hit
-	</button>
-	<button *ngIf="isShown" 
-					class="btn-stand" 
-					(click)="onStand()">
-		Stand
-	</button>  -->
+	<side-bar
+		[winner] = "winner"
+		[humanScore] = "humanScore"
+		[computerScore] = "computerScore"
+		(newGame_did) = "newGame($event)"
+		[isShown] = "isShown"
+		(onHit_did) = "onHit($event)"
+		(onStand_did) = "onStand($event)">
+	</side-bar>		
 </div>

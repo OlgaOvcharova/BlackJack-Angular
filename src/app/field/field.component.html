@@ -1,3 +1,29 @@
-<p>
-  field works!
-</p>
+<div class="player-0-panel ">
+	<div class="player-name">
+		You
+	</div>
+
+	<div class="player-score">
+		{{ humanScore }}
+	</div>
+
+	<div *ngFor="let card of humanPlayerHand" 
+			class="player-hand">
+    <img [src]="card.imageSource"/>
+  </div>      
+</div>
+
+<div class="player-1-panel">
+	<div class="player-name">
+		Dealer
+	</div>
+
+	<div class="player-score">
+		{{ computerScore }}
+	</div>
+		
+	<div *ngFor="let card of computerPlayerHand" 
+		class="player-hand">
+    <img [src]="card.imageSource"/>
+  </div>
+</div>

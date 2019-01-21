@@ -4,12 +4,15 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   selector: 'side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.css'],
-  host: { class: 'btn btn-new btn-hit btn-stand' },
+  host: { class: 'side-bar' },
 })
 
 export class SideBarComponent implements OnInit {
 
   @Input() public isShown: boolean; 
+  @Input() public winner: string;
+  @Input() public humanScore: number;
+  @Input() public computerScore: number;
 
   @Output()
   public newGame_did = new EventEmitter<void>();
@@ -20,18 +23,21 @@ export class SideBarComponent implements OnInit {
   @Output()
   public onHit_did = new EventEmitter<void>();
   public onHit_do(){
-  this.newGame_did.emit();
+  this.onHit_did.emit();
   }
 
   @Output()
   public onStand_did = new EventEmitter<void>();
   public onStand_do(){
-  this.newGame_did.emit();
+  this.onStand_did.emit();
   }
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
+
   }
 
 }

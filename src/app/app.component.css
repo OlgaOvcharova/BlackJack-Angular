@@ -18,12 +18,6 @@
     box-sizing: border-box;
 }
 
-.clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 body {
     background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4));
     background-size: cover;
@@ -75,10 +69,6 @@ body {
     margin-bottom: 130px;
 }
 
-.player-current-score {
-    font-size: 20px;
-}
-
 .player-hand {
     display: inline-block;
 }
@@ -99,27 +89,13 @@ button {
     transition: background-color 0.3s, color 0.3s;
 }
 
-button:hover { font-weight: 600; }
-
-button:hover i { margin-right: 20px; }
-
-button:focus {
-    outline: none;
-}
-
 img {
 	width: 90px;
     height: 130px;
 }
 
+.btn-hit { top: 403px; }
 
+.btn-stand { top: 467px; }
 
-.btn-hit { 
-    top: 403px;
-}
-
-.btn-stand { 
-    top: 467px;
-}
-
-.btn-new { top: 45px;}
+.btn-new { top: 45px; }
