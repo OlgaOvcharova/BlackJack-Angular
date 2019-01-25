@@ -10,7 +10,6 @@ export class AppComponent {
 
   private _deck: TCard[] = [];
   
-  
   public resultToSideBar: TResultToSideBar = {
     isShownButtons : false,
     winner: '',
@@ -23,12 +22,11 @@ export class AppComponent {
     computerPlayerHand: []
   }
   
-  
   private readonly SWAP_TIMES: number = 36;
   private readonly WIN_SCORE: number = 21;
   private readonly ENOUGH_SCORE: number = 15;
-
-
+  
+  
   public constructor() {
     this._generateDeck();
   }
