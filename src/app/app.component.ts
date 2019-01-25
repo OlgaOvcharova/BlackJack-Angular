@@ -10,6 +10,7 @@ export class AppComponent {
 
   private _deck: TCard[] = [];
   
+  
   public resultToSideBar: TResultToSideBar = {
     isShownButtons : false,
     winner: '',
