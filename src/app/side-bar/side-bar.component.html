@@ -3,21 +3,21 @@
   New game
 </button>
 
-<button *ngIf="resultToSideBar.isShownButtons" 
-				class="btn-hit" 
-				(click)="onHitClicked.emit()">
+<button *ngIf="result.isShownButtons" 
+		class="btn-hit" 
+		(click)="onHitClicked.emit()">
 	Hit
 </button>
 
-<button *ngIf="resultToSideBar.isShownButtons" 
-				class="btn-stand" 
-				(click)="onStandClicked.emit()">
+<button *ngIf="result.isShownButtons" 
+		class="btn-stand" 
+		(click)="onStandClicked.emit()">
 	Stand
 </button> 
 
 <div class="message"> 
-    <p>Human score: {{ resultToSideBar.humanScore }}</p>
-    <p>Dealer score: {{ resultToSideBar.computerScore }}</p>
-    <p>{{ resultToSideBar.winner }}</p>
+    <p>Human score: {{ result.humanScore }}</p>
+    <p>Dealer score: {{ result.computerScore }}</p>
+    <p>{{ result.winner }}</p>
 </div>
 
