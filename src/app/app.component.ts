@@ -10,7 +10,6 @@ export class AppComponent {
 
   private _deck: TCard[] = [];
   
-  
   public resultToSideBar: TResultToSideBar = {
     isShownButtons : false,
     winner: '',
@@ -59,7 +58,6 @@ export class AppComponent {
 
       return;
     }
-    
     if (this.resultToSideBar.humanScore === this.WIN_SCORE) {
       this.resultToSideBar.winner = 'Winner: You';
       this.resultToSideBar.isShownButtons = false;
