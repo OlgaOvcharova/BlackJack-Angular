@@ -1,16 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// import { RouterModule } from '@angular/router';
-
-// import { appRoutes } from './routes';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { FieldComponent } from './field/field.component';
-
-// import { provideForRootGuard } from '@angular/router/src/router_module';
-
 
 @NgModule({
   declarations: [
@@ -20,8 +14,7 @@ import { FieldComponent } from './field/field.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    // RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,10 +2,6 @@
 	<div class="player-name">
 		Dealer
 	</div>
-
-	<div class="player-score">
-		{{ computerScore }}
-	</div>
 		
 	<div *ngFor="let card of playerHands.computerPlayerHand" 
 		class="player-hand">
@@ -17,11 +13,7 @@
 	<div class="player-name">
 		You
 	</div>
-	
-	<div class="player-score">
-		{{ humanScore }}
-	</div>
-	
+
 	<div *ngFor="let card of playerHands.humanPlayerHand" 
 				class="player-hand">
 		<img [src]="card.imageSource"/>

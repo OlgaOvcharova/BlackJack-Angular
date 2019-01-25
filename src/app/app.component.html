@@ -1,12 +1,11 @@
 <div class="wrapper clearfix">
-	<field
-		[playerHands] = "playerHands">
+	<field [playerHands]="playerHands">
 	</field>
     
 	<side-bar
-		[resultToSideBar] = "resultToSideBar"
-		(newGameClicked) = "newGame()"
-		(onHitClicked) = "onHit()"
-		(onStandClicked) = "onStand()">
+		[resultToSideBar]="resultToSideBar"
+		(newGameClicked)="newGame()"
+		(onHitClicked)="onHit()"
+		(onStandClicked)="onStand()">
 	</side-bar>		
 </div>

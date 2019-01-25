@@ -5,7 +5,7 @@ type TCard = {
     imageSource: string;
 };
 
-type TResultToSideBar = {
+type TResult = {
     isShownButtons: boolean;
     winner: string;
     humanScore: number;

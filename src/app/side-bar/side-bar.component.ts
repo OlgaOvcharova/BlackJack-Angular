@@ -9,7 +9,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 export class SideBarComponent {
 
-  @Input() public resultToSideBar: TResultToSideBar;
+  @Input() public result: TResult;
 
   @Output() public newGameClicked: EventEmitter<void> = new EventEmitter();
   @Output() public onHitClicked: EventEmitter<void> = new EventEmitter();
