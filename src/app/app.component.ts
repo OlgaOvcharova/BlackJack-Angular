@@ -59,7 +59,7 @@ export class AppComponent {
       this.resultToSideBar.isShownButtons = false;
 
       return;
-    } 
+    }
     
     if (this.resultToSideBar.humanScore === this.WIN_SCORE) {
       this.resultToSideBar.winner = 'Winner: You';
@@ -86,7 +86,7 @@ export class AppComponent {
 
         return;
       }
-      
+
       if (this.resultToSideBar.computerScore === this.resultToSideBar.humanScore) {
         this.resultToSideBar.winner = 'Nobody wins. Equal scores';
       }
