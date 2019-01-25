@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'field',
@@ -6,16 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./field.component.css'],
   host: {class: 'game-field'},
 })
-export class FieldComponent implements OnInit {
 
-  @Input() public humanScore: number;
-  @Input() public computerScore: number;
-  @Input() public humanPlayerHand: TCard[] = [];
-  @Input() public computerPlayerHand: TCard[] = [];
+export class FieldComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input() public playerHands: TPlayerHands;
 
 }

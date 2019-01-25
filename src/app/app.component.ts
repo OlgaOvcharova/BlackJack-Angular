@@ -8,80 +8,86 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
 
-  public winner: string = '';
-  public isShown: boolean = false;
-  public humanPlayerHand: TCard[] = [];
-  public computerPlayerHand: TCard[] = [];
-  public humanScore: number = 0;
-  public computerScore: number = 0;
+  private _deck: TCard[] = [];
 
+ 
+  public resultToSideBar: TResultToSideBar = {
+    isShownButtons : false,
+    winner: '',
+    humanScore: 0,
+    computerScore: 0
+  }
 
+  public playerHands: TPlayerHands = {
+    humanPlayerHand: [],
+    computerPlayerHand: []
+  }
+  
+  
   private readonly SWAP_TIMES: number = 36;
   private readonly WIN_SCORE: number = 21;
   private readonly ENOUGH_SCORE: number = 15;
 
-  private _deck: TCard[] = [];
- 
-  
+
   public constructor() {
     this._generateDeck();
   }
 
   public newGame(): void {
-    this.isShown = true;
-    this.winner = '';
-    this.humanScore = 0;
-    this.computerScore = 0;
+    this.resultToSideBar.isShownButtons = true;
+    this.resultToSideBar.winner = '';
+    this.resultToSideBar.humanScore = 0;
+    this.resultToSideBar.computerScore = 0;
 
-    this._deck = this._deck.concat(this.humanPlayerHand, this.computerPlayerHand);
-    this.humanPlayerHand = [];
-    this.computerPlayerHand = [];
+    this._deck = this._deck.concat(this.playerHands.humanPlayerHand, this.playerHands.computerPlayerHand);
+    this.playerHands.humanPlayerHand = [];
+    this.playerHands.computerPlayerHand = [];
     this._deck = this._shuffleDeck(this._deck);
 
-    this.humanPlayerHand.push(this._deck.pop());
-    this.humanScore += this.humanPlayerHand[this.humanPlayerHand.length - 1].value;
-    this.computerPlayerHand.push(this._deck.pop());
-    this.computerScore += this.computerPlayerHand[this.computerPlayerHand.length - 1].value;
+    this.playerHands.humanPlayerHand.push(this._deck.pop());
+    this.resultToSideBar.humanScore += this.playerHands.humanPlayerHand[this.playerHands.humanPlayerHand.length - 1].value;
+    this.playerHands.computerPlayerHand.push(this._deck.pop());
+    this.resultToSideBar.computerScore += this.playerHands.computerPlayerHand[this.playerHands.computerPlayerHand.length - 1].value;
   }
 
   public onHit(): void {
-    this.humanPlayerHand.push(this._deck.pop());
-    this.humanScore += this.humanPlayerHand[this.humanPlayerHand.length - 1].value;
+    this.playerHands.humanPlayerHand.push(this._deck.pop());
+    this.resultToSideBar.humanScore += this.playerHands.humanPlayerHand[this.playerHands.humanPlayerHand.length - 1].value;
 
-    if (this.humanScore > this.WIN_SCORE) {
-      this.winner = 'Winner: Dealer';
-      this.isShown = false;
+    if (this.resultToSideBar.humanScore > this.WIN_SCORE) {
+      this.resultToSideBar.winner = 'Winner: Dealer';
+      this.resultToSideBar.isShownButtons = false;
 
       return;
     } 
     
-    if (this.humanScore === this.WIN_SCORE) {
-      this.winner = 'Winner: You';
-      this.isShown = false;
+    if (this.resultToSideBar.humanScore === this.WIN_SCORE) {
+      this.resultToSideBar.winner = 'Winner: You';
+      this.resultToSideBar.isShownButtons = false;
     }
   }
 
   public onStand(): void {
-    this.isShown = false;
+    this.resultToSideBar.isShownButtons = false;
 
-    while (this.computerScore <= this.ENOUGH_SCORE && this.computerScore !== this.WIN_SCORE) {
-      this.computerPlayerHand.push(this._deck.pop());
-      this.computerScore += this.computerPlayerHand[this.computerPlayerHand.length - 1].value;
+    while (this.resultToSideBar.computerScore <= this.ENOUGH_SCORE && this.resultToSideBar.computerScore !== this.WIN_SCORE) {
+      this.playerHands.computerPlayerHand.push(this._deck.pop());
+      this.resultToSideBar.computerScore += this.playerHands.computerPlayerHand[this.playerHands.computerPlayerHand.length - 1].value;
 
-      if (this.computerScore > this.WIN_SCORE || this.computerScore < this.humanScore) {
-        this.winner = 'Winner: You';
+      if (this.resultToSideBar.computerScore > this.WIN_SCORE || this.resultToSideBar.computerScore < this.resultToSideBar.humanScore) {
+        this.resultToSideBar.winner = 'Winner: You';
 
         return;
       }
 
-      if (this.computerScore === this.WIN_SCORE || this.computerScore > this.humanScore) {
-        this.winner = 'Winner: Dealer';
+      if (this.resultToSideBar.computerScore === this.WIN_SCORE || this.resultToSideBar.computerScore > this.resultToSideBar.humanScore) {
+        this.resultToSideBar.winner = 'Winner: Dealer';
 
         return;
       }
       
-      if (this.computerScore === this.humanScore) {
-        this.winner = 'Nobody wins. Eqal scores';
+      if (this.resultToSideBar.computerScore === this.resultToSideBar.humanScore) {
+        this.resultToSideBar.winner = 'Nobody wins. Equal scores';
       }
     }
   }

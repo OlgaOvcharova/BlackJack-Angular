@@ -1,23 +1,23 @@
 <button class="btn-new" 
-    (click)="newGame_do()">
+        (click)="newGameClicked.emit()">
   New game
 </button>
 
-<button *ngIf="isShown" 
+<button *ngIf="resultToSideBar.isShownButtons" 
 				class="btn-hit" 
-				(click)="onHit_do()">
+				(click)="onHitClicked.emit()">
 	Hit
 </button>
 
-<button *ngIf="isShown" 
+<button *ngIf="resultToSideBar.isShownButtons" 
 				class="btn-stand" 
-				(click)="onStand_do()">
+				(click)="onStandClicked.emit()">
 	Stand
 </button> 
 
 <div class="message"> 
-    <p>{{ winner }}</p> 
-    <p>Human score: {{ humanScore }}</p>
-    <p>Dealer score: {{ computerScore }}</p>
+    <p>Human score: {{ resultToSideBar.humanScore }}</p>
+    <p>Dealer score: {{ resultToSideBar.computerScore }}</p>
+    <p>{{ resultToSideBar.winner }}</p>
 </div>
 

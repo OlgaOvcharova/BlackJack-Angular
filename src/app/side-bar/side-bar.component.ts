@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'side-bar',
@@ -7,37 +7,12 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   host: { class: 'side-bar' },
 })
 
-export class SideBarComponent implements OnInit {
+export class SideBarComponent {
 
-  @Input() public isShown: boolean; 
-  @Input() public winner: string;
-  @Input() public humanScore: number;
-  @Input() public computerScore: number;
+  @Input() public resultToSideBar: TResultToSideBar;
 
-  @Output()
-  public newGame_did = new EventEmitter<void>();
-  public newGame_do(){
-  this.newGame_did.emit();
-  }
-
-  @Output()
-  public onHit_did = new EventEmitter<void>();
-  public onHit_do(){
-  this.onHit_did.emit();
-  }
-
-  @Output()
-  public onStand_did = new EventEmitter<void>();
-  public onStand_do(){
-  this.onStand_did.emit();
-  }
-
-  constructor() {
-
-  }
-
-  ngOnInit() {
-
-  }
+  @Output() public newGameClicked: EventEmitter<void> = new EventEmitter();
+  @Output() public onHitClicked: EventEmitter<void> = new EventEmitter();
+  @Output() public onStandClicked: EventEmitter<void> = new EventEmitter();
 
 }

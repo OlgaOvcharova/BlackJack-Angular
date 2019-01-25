@@ -1,18 +1,12 @@
 <div class="wrapper clearfix">
 	<field
-		[humanScore] = "humanScore"
-		[computerScore] = "computerScore"
-		[humanPlayerHand] = "humanPlayerHand"
-		[computerPlayerHand] = "computerPlayerHand">
+		[playerHands] = "playerHands">
 	</field>
     
 	<side-bar
-		[winner] = "winner"
-		[humanScore] = "humanScore"
-		[computerScore] = "computerScore"
-		(newGame_did) = "newGame($event)"
-		[isShown] = "isShown"
-		(onHit_did) = "onHit($event)"
-		(onStand_did) = "onStand($event)">
+		[resultToSideBar] = "resultToSideBar"
+		(newGameClicked) = "newGame()"
+		(onHitClicked) = "onHit()"
+		(onStandClicked) = "onStand()">
 	</side-bar>		
 </div>
