@@ -17,7 +17,7 @@ export class AppComponent {
     humanScore: 0,
     computerScore: 0
   }
-
+  
   public playerHands: TPlayerHands = {
     humanPlayerHand: [],
     computerPlayerHand: []
