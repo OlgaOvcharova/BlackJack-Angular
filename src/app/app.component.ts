@@ -6,20 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {  
-  private _deck: TCard[] = [];
-  
-  
+export class AppComponent {
+
+  private _deck: TCard[] = []; 
+
   public resultToSideBar: TResultToSideBar = {
     isShownButtons: false,
     winner: '',
     humanScore: 0,
     computerScore: 0
-  }
+  };
+
   public playerHands: TPlayerHands = {
     humanPlayerHand: [],
     computerPlayerHand: []
-  }
+  };
   
   private readonly SWAP_TIMES: number = 36;
   private readonly WIN_SCORE: number = 21;
