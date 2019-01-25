@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
 
+  
   private _deck: TCard[] = []; 
 
   public resultToSideBar: TResultToSideBar = {
