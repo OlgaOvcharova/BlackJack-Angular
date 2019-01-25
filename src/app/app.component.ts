@@ -7,17 +7,15 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-
+  
   private _deck: TCard[] = [];
-
   
   public resultToSideBar: TResultToSideBar = {
-    isShownButtons : false,
+    isShownButtons: false,
     winner: '',
     humanScore: 0,
     computerScore: 0
   }
-  
   public playerHands: TPlayerHands = {
     humanPlayerHand: [],
     computerPlayerHand: []
