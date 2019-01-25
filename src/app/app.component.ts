@@ -9,7 +9,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   private _deck: TCard[] = [];
-
  
   public resultToSideBar: TResultToSideBar = {
     isShownButtons : false,
@@ -18,12 +17,13 @@ export class AppComponent {
     computerScore: 0
   }
 
+  
   public playerHands: TPlayerHands = {
     humanPlayerHand: [],
     computerPlayerHand: []
   }
   
-  
+
   private readonly SWAP_TIMES: number = 36;
   private readonly WIN_SCORE: number = 21;
   private readonly ENOUGH_SCORE: number = 15;
@@ -65,6 +65,7 @@ export class AppComponent {
       this.resultToSideBar.winner = 'Winner: You';
       this.resultToSideBar.isShownButtons = false;
     }
+
   }
 
   public onStand(): void {
@@ -89,6 +90,7 @@ export class AppComponent {
       if (this.resultToSideBar.computerScore === this.resultToSideBar.humanScore) {
         this.resultToSideBar.winner = 'Nobody wins. Equal scores';
       }
+
     }
   }
 
@@ -132,5 +134,6 @@ export class AppComponent {
     }
 
     return deck;
-  } 
+  }
+
 }
