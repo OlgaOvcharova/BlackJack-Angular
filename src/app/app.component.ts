@@ -21,6 +21,7 @@ export class AppComponent {
     humanPlayerHand: [],
     computerPlayerHand: []
   };
+
   
   private readonly SWAP_TIMES: number = 36;
   private readonly WIN_SCORE: number = 21;
