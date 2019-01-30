@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { RouterModule } from '@angular/router';
-import { AppRoutes } from './app.routes';
+import { appRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 import { FieldComponent } from './field/field.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
@@ -21,7 +21,7 @@ import { ErrorComponent } from './error/error.component';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(AppRoutes)
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

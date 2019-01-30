@@ -1,9 +1,9 @@
-import { Routes } from "@angular/router";
-import { MenuComponent } from "./menu/menu.component";
-import { GameComponent } from "./game/game.component";
-import { ErrorComponent } from "./error/error.component";
+import { Routes } from '@angular/router';
+import { MenuComponent } from './menu/menu.component';
+import { GameComponent } from './game/game.component';
+import { ErrorComponent } from './error/error.component';
 
-export const AppRoutes: Routes = [
+export const appRoutes: Routes = [
     {
         path: '',
         redirectTo: 'menu',
