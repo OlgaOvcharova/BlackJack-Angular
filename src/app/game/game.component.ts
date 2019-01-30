@@ -58,6 +58,7 @@ export class GameComponent {
 
       return;
     }
+    
     if (this.result.humanScore === this._WIN_SCORE) {
       this.result.winner = 'Winner: You';
       this.result.isShownButtons = false;
@@ -71,18 +72,14 @@ export class GameComponent {
     while (this.result.computerScore <= this._ENOUGH_SCORE && this.result.computerScore !== this._WIN_SCORE) {
       this.playerHands.computerPlayerHand.push(this._deck.pop());
       this.result.computerScore += this.playerHands.computerPlayerHand[this.playerHands.computerPlayerHand.length - 1].value;
-
+      
       if (this.result.computerScore > this._WIN_SCORE || this.result.computerScore < this.result.humanScore) {
         this.result.winner = 'Winner: You';
-
-        return;
       }
 
       if (this.result.computerScore === this._WIN_SCORE || this.result.computerScore > this.result.humanScore) {
         this.result.winner = 'Winner: Dealer';
-
-        return;
-      }
+      }      
 
       if (this.result.computerScore === this.result.humanScore) {
         this.result.winner = 'Nobody wins. Equal scores';
