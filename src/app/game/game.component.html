@@ -1,0 +1,10 @@
+<div class="wrapper clearfix">
+	<field [playerHands]="playerHands"></field>
+    
+	<side-bar
+		[result]="result"
+		(newGameClicked)="newGame()"
+		(onHitClicked)="onHit()"
+		(onStandClicked)="onStand()">
+	</side-bar>		
+</div>

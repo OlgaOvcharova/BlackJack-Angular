@@ -1,18 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
+import { RouterModule } from '@angular/router';
+import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
-import { SideBarComponent } from './side-bar/side-bar.component';
 import { FieldComponent } from './field/field.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
+import { MenuComponent } from './menu/menu.component';
+import { GameComponent } from './game/game.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideBarComponent,
     FieldComponent,
+    MenuComponent,
+    GameComponent,
+    ErrorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(AppRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

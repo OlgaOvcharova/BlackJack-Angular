@@ -16,4 +16,3 @@ type TPlayerHands = {
     humanPlayerHand: TCard[];
     computerPlayerHand: TCard[];
 }
-
