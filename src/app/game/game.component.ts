@@ -79,7 +79,7 @@ export class GameComponent {
 
       if (this.result.computerScore === this._WIN_SCORE || this.result.computerScore > this.result.humanScore) {
         this.result.winner = 'Winner: Dealer';
-      }      
+      }
 
       if (this.result.computerScore === this.result.humanScore) {
         this.result.winner = 'Nobody wins. Equal scores';
