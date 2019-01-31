@@ -15,7 +15,7 @@ export class DeckService {
     this._generateDeck();
   }
 
-  public getDeck() {
+  public getDeck(): TCard[] {
     this._deck = this._shuffleDeck(this._deck);
     return this._deck;
   }
