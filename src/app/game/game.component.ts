@@ -24,13 +24,12 @@ export class GameComponent {
   private readonly _WIN_SCORE: number = 21;
   private readonly _ENOUGH_SCORE: number = 15;
 
-  private _deck: TCard[] = [];
-  private _deckService: DeckService;
-
-
-  // public constructor(deckService: DeckService) {
-  //   this._deckService = deckService;
-  // }
+  private _deck: TCard[];
+  _deckService: DeckService;
+  
+  public constructor(deckService: DeckService) {
+    this._deckService = deckService;
+  }
 
   public newGame(): void {
     this.result.isShownButtons = true;
@@ -88,7 +87,7 @@ export class GameComponent {
     }
   }
 
-  public ngOnInit(): void {
+  public ngOnInit() {
     this._deck = this._deckService.getDeck();
   }
 }
