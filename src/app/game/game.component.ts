@@ -88,7 +88,7 @@ export class GameComponent implements OnInit {
     }
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this._deck = this._deckService.getDeck();
   }
 }
