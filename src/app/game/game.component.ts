@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DeckService } from '../services/deck.service';
 
 @Component({
   selector: 'app-game',
@@ -20,15 +21,15 @@ export class GameComponent {
   };
 
 
-  private readonly _SWAP_TIMES: number = 36;
   private readonly _WIN_SCORE: number = 21;
   private readonly _ENOUGH_SCORE: number = 15;
 
-  private _deck: TCard[] = [];
+  private _deck;
+  private _deckService;
 
 
-  public constructor() {
-    this._generateDeck();
+  public constructor(deckService: DeckService) {
+    this._deckService = deckService;
   }
 
   public newGame(): void {
@@ -40,7 +41,6 @@ export class GameComponent {
     this._deck = this._deck.concat(this.playerHands.humanPlayerHand, this.playerHands.computerPlayerHand);
     this.playerHands.humanPlayerHand = [];
     this.playerHands.computerPlayerHand = [];
-    this._deck = this._shuffleDeck(this._deck);
 
     this.playerHands.humanPlayerHand.push(this._deck.pop());
     this.result.humanScore += this.playerHands.humanPlayerHand[this.playerHands.humanPlayerHand.length - 1].value;
@@ -88,44 +88,8 @@ export class GameComponent {
     }
   }
 
-
-  private _generateDeck(): void {
-    const cardNameCollection: string[] = ['Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace'];
-    const suitsNameCollection: string[] = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
-    const valueCollection: number[] = [6, 7, 8, 9, 10, 2, 3, 4, 11];
-
-    suitsNameCollection.forEach((cardSuit: string) => {
-      cardNameCollection.forEach((cardName: string, index: number) => {
-        this._deck.push(this._getCard(cardName, cardSuit, valueCollection[index]));
-      });
-    });
+  ngOnInit(){
+    this._deck = this._deckService.getDeck();
   }
 
-  private _getCard(name: string, suit: string, value: number): TCard {
-    return {
-      name,
-      suit,
-      value,
-      imageSource: `../assets/cards/${suit}/${name}.jpg`
-    };
-  }
-
-  private _shuffleDeck(deck: TCard[]): TCard[] {
-    for (let indexSwap: number = 0; indexSwap < this._SWAP_TIMES; indexSwap++) {
-
-      const firstIndex: number = Math.floor(Math.random() * (this._deck.length));
-      const secondIndex: number = Math.floor(Math.random() * (this._deck.length));
-
-      if (firstIndex === secondIndex) {
-        indexSwap--;
-        continue;
-      }
-
-      const temp: TCard = deck[firstIndex];
-      deck[firstIndex] = deck[secondIndex];
-      deck[secondIndex] = temp;
-    }
-
-    return deck;
-  }
 }
