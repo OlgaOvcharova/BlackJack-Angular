@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DeckService } from '../services/deck.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { DeckService } from '../services/deck.service';
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
-export class GameComponent {
+export class GameComponent implements OnInit {
 
   public result: TResult = {
     isShownButtons: false,
@@ -25,8 +25,9 @@ export class GameComponent {
   private readonly _ENOUGH_SCORE: number = 15;
 
   private _deck: TCard[];
-  _deckService: DeckService;
-  
+  private _deckService: DeckService;
+
+
   public constructor(deckService: DeckService) {
     this._deckService = deckService;
   }
