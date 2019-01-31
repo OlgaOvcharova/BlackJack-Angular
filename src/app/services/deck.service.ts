@@ -26,7 +26,7 @@ export class DeckService {
         deck.push(this._getCard(cardName, cardSuit, valueCollection[index]));
       });
     });
-    
+
     return deck;
   }
 
