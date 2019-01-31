@@ -24,7 +24,7 @@ export class GameComponent {
   private readonly _WIN_SCORE: number = 21;
   private readonly _ENOUGH_SCORE: number = 15;
 
-  private _deck;
+  private _deck:TCard[] = [];
   private _deckService;
 
 
@@ -87,9 +87,8 @@ export class GameComponent {
       }
     }
   }
-
-  ngOnInit(){
+  
+  public ngOnInit(){
     this._deck = this._deckService.getDeck();
   }
-
 }
