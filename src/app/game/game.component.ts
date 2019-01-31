@@ -25,11 +25,12 @@ export class GameComponent implements OnInit {
   private readonly _ENOUGH_SCORE: number = 15;
 
   private _deck: TCard[];
-  private _deckService: DeckService;
 
 
-  public constructor(deckService: DeckService) {
-    this._deckService = deckService;
+  public constructor(private _deckService: DeckService) {}
+
+  public ngOnInit(): void {
+    this._deck = this._deckService.getDeck();
   }
 
   public newGame(): void {
@@ -86,9 +87,5 @@ export class GameComponent implements OnInit {
         this.result.winner = 'Nobody wins. Equal scores';
       }
     }
-  }
-
-  public ngOnInit(): void {
-    this._deck = this._deckService.getDeck();
   }
 }

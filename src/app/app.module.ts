@@ -10,6 +10,7 @@ import { FieldComponent } from './field/field.component';
 import { GameComponent } from './game/game.component';
 import { MenuComponent } from './menu/menu.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { WinService } from './services/win.service';
 
 
 @NgModule({
@@ -25,7 +26,10 @@ import { SideBarComponent } from './side-bar/side-bar.component';
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [DeckService],
+  providers: [
+    DeckService,
+    WinService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

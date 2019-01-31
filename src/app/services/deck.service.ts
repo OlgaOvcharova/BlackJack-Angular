@@ -1,14 +1,9 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DeckService {
 
-
   private readonly _SWAP_TIMES: number = 36;
-
-  private _deck: TCard[] = [];
 
 
   public constructor() {
@@ -16,21 +11,23 @@ export class DeckService {
   }
 
   public getDeck(): TCard[] {
-    this._deck = this._shuffleDeck(this._deck);
-    return this._deck;
+    return this._shuffleDeck(this._generateDeck());
   }
 
 
-  private _generateDeck(): void {
+  private _generateDeck(): TCard[] {
+    const deck: TCard[] = [];
     const cardNameCollection: string[] = ['Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace'];
     const suitsNameCollection: string[] = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
     const valueCollection: number[] = [6, 7, 8, 9, 10, 2, 3, 4, 11];
 
     suitsNameCollection.forEach((cardSuit: string) => {
       cardNameCollection.forEach((cardName: string, index: number) => {
-        this._deck.push(this._getCard(cardName, cardSuit, valueCollection[index]));
+        deck.push(this._getCard(cardName, cardSuit, valueCollection[index]));
       });
     });
+    
+    return deck;
   }
 
   private _getCard(name: string, suit: string, value: number): TCard {
@@ -45,8 +42,8 @@ export class DeckService {
   private _shuffleDeck(deck: TCard[]): TCard[] {
     for (let indexSwap: number = 0; indexSwap < this._SWAP_TIMES; indexSwap++) {
 
-      const firstIndex: number = Math.floor(Math.random() * (this._deck.length));
-      const secondIndex: number = Math.floor(Math.random() * (this._deck.length));
+      const firstIndex: number = Math.floor(Math.random() * (deck.length));
+      const secondIndex: number = Math.floor(Math.random() * (deck.length));
 
       if (firstIndex === secondIndex) {
         indexSwap--;
