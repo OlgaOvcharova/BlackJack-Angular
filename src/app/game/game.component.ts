@@ -56,6 +56,7 @@ export class GameComponent implements OnInit {
       this.result.humanScore += this.playerHands.humanPlayerHand[this.playerHands.humanPlayerHand.length - 1].value;
 
     return;  
+
     } 
   }
 
