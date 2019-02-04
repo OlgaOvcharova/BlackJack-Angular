@@ -20,15 +20,15 @@ export class WinService {
       return 'Winner: Dealer';
     }
 
-    if (computerScore > this._WIN_SCORE && humanScore < computerScore){
+    if (computerScore > this._WIN_SCORE && humanScore < computerScore) {
       return 'Winner: You';
     }
 
-    if (humanScore < this._WIN_SCORE && computerScore > humanScore){
+    if (humanScore < this._WIN_SCORE && computerScore > humanScore) {
       return 'Winner: Dealer';
     }
 
-    if (humanScore < this._WIN_SCORE && computerScore < humanScore){
+    if (humanScore < this._WIN_SCORE && computerScore < humanScore) {
       return 'Winner: You';
     }
 

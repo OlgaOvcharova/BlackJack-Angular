@@ -55,8 +55,7 @@ export class GameComponent implements OnInit {
       this.playerHands.humanPlayerHand.push(this._deck.pop());
       this.result.humanScore += this.playerHands.humanPlayerHand[this.playerHands.humanPlayerHand.length - 1].value;
 
-    return;  
-
+      return;
     } 
   }
 
