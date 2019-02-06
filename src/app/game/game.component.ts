@@ -21,20 +21,24 @@ export class GameComponent implements OnInit {
     computerPlayerHand: []
   };
 
+
   private readonly _WIN_SCORE: number = 21;
   private readonly _ENOUGH_SCORE: number = 15;
 
   private _deck: TCard[];
 
 
-  public constructor(private _deckService: DeckService, public winService: WinService) {}
+  public constructor(
+    private _deckService: DeckService, 
+    private _winService: WinService
+  ) {}
 
   public ngOnInit(): void {
     this._deck = this._deckService.getDeck();
   }
 
   public newGame(): void {
-    this.result.isShownButtons = true;
+    this.result.isShownButtons = true;  
     this.result.winner = '';
     this.result.humanScore = 0;
     this.result.computerScore = 0;
@@ -67,6 +71,6 @@ export class GameComponent implements OnInit {
       this.result.computerScore += this.playerHands.computerPlayerHand[this.playerHands.computerPlayerHand.length - 1].value;
     }
 
-    this.result.winner = this.winService.getWinner(this.result.humanScore, this.result.computerScore);
+    this.result.winner = this._winService.getWinner(this.result.humanScore, this.result.computerScore);
   }
 }

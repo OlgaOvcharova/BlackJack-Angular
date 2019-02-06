@@ -7,7 +7,7 @@ export class WinService {
   private readonly _WIN_SCORE: number = 21;
 
 
-  public getWinner(humanScore: number, computerScore: number): TResult['winner'] {
+  public getWinner(humanScore: number, computerScore: number): string {
     if (computerScore === humanScore) {
       return 'Nobody wins. Equal scores';
     }
