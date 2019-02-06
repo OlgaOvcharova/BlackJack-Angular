@@ -29,7 +29,7 @@ export class GameComponent implements OnInit {
 
 
   public constructor(
-    private _deckService: DeckService, 
+    private _deckService: DeckService,
     private _winService: WinService
   ) {}
 
@@ -38,7 +38,7 @@ export class GameComponent implements OnInit {
   }
 
   public newGame(): void {
-    this.result.isShownButtons = true;  
+    this.result.isShownButtons = true;
     this.result.winner = '';
     this.result.humanScore = 0;
     this.result.computerScore = 0;
